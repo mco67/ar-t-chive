@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ar-t-chive": {
+      "hosting": {
+        "Ar-t-chive": [
+          "ar-t-chive"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ar-t-chive"
+  }
+}
