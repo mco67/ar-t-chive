@@ -1,0 +1,23 @@
+main {
+    background: red;
+    display: flex;
+    flex-direction: column;
+
+    header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background: blue;
+        flex: 0 0 40px;
+        border-bottom: solid 1px yellow;
+        padding: 0 8px;
+
+        .main-header_right {
+            margin-left: auto;
+        }
+    }
+
+    section {
+        flex: 1;
+    }
+}

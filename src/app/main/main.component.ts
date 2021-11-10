@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
 	selector: 'main',
 	templateUrl: 'main.component.html',
-	styleUrls: ['main.component.scss']
+	styleUrls: ['main.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class MainComponent {
 
