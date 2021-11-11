@@ -1,0 +1,18 @@
+<div *ngIf="label" class="textInput-label">
+    <span [translate]="label"></span>&nbsp;
+    <span class="textInput-readOnly" *ngIf="readOnly && readOnlyInfo" translate="readOnly"></span>
+</div>
+
+<ng-container *ngIf="readOnly">
+    <div class="textField-value" [innerHtml]="innerValue"></div>
+</ng-container>
+
+<ng-container *ngIf="!readOnly">
+    <input #input (keyup)="onChange($event, input.value)" [value]="value" spellcheck="false" class="{{errorClass}}"
+        [type]="type" dir="auto" placeholder="{{placeHolder | translate}}" autocomplete="{{autoComplete}}">
+    <!--svg-img *ngIf="passwordEye" iconId="show-pwd" class="textFieldShowPassword" (click)="toggleShowPassword()">
+    </svg-img-->
+    <div *ngIf="!formControl.pristine && !formControl.valid" class="textFieldErrorDetails">
+        <div *ngFor="let error of errors" [translate]="error"></div>
+    </div>
+</ng-container>

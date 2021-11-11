@@ -1,0 +1,78 @@
+textField {
+    display: block;
+    position: relative;
+    font-family: inherit;
+}
+
+.textField-readOnly {
+    font-size: 1.0rem;
+}
+
+.textFieldError {
+    color: #721c24;
+}
+
+.textFieldErrorDetails {
+    color: #721c24;
+    background: #f8d7da;
+    margin: -7px 0 8px;
+    padding: 2px 4px;
+    border: solid 1px #f5c6cb;
+    border-radius: 3px;
+    width: 280px;
+}
+
+.textFieldShowPassword {
+    position: absolute;
+    top: 21px;
+    right: 6px;
+    cursor: pointer;
+    display: block;
+
+    svg {
+        width: 17px;
+        height: 17px;
+        fill: #858ea2;
+    }
+}
+
+textfield {
+    .textField-label {
+        margin-bottom: 4px;
+        color: var(--main-text-color);
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        user-select: none;
+    }
+
+    .textField-value {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    input {
+        line-height: 20px;
+        padding: 0 0 0 4px;
+        width: 300px;
+        margin-bottom: 10px;
+        border: solid 1px var(--separator-light-color);
+        padding: 6px 8px;
+        background: var(--droplist-background);
+        border-radius: 3px;
+
+        &:hover, &:focus {
+            border: solid 1px var(--separator-color);
+        }
+
+        &:focus-visible {
+            outline: 0;
+            border-color: var(--active-color);
+            box-shadow: 0 0 0 1px var(--active-color);
+        }
+
+        &::placeholder {
+            color: rgb(141, 141, 141);
+        }
+    }
+}

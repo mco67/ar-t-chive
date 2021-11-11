@@ -12,6 +12,7 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { WaveButtonComponent } from './widgets/waveButton/waveButton.component';
 import { LoginComponent } from './login/login.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TextInputComponent } from './widgets/textInput/textInput.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http);
@@ -20,6 +21,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 	declarations: [
 		AppComponent,
 		WaveButtonComponent,
+		TextInputComponent,
 		LoginComponent
 	],
 	imports: [
