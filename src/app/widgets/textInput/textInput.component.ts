@@ -50,15 +50,15 @@ export class TextInputComponent implements ControlValueAccessor {
     public ngOnInit(): void {
         this.formErrors = this.formControl.errors;
         if (this.password) { this.type = 'password'; }
+
         this.subscription = this.formControl.statusChanges.subscribe((status) => {
             if (status === "INVALID") {
-
                 Object.keys(this.formErrors).forEach((key) => {
                     if (key === "required") { this.errors.push('errorMandatoryField'); }
                     else if (key === "email") { this.errors.push('emailfield-error'); }
                     else { this.errors.push(this.formErrors[key]); }
                 });
-                this.errorClass = "textFieldError";
+                this.errorClass = "textInputError";
             }
             else { this.errorClass = null; }
             this.changeDetectorRef.detectChanges();
@@ -97,18 +97,10 @@ export class TextInputComponent implements ControlValueAccessor {
         this.changeDetectorRef.detectChanges();
     }
 
-    public toggleShowPassword() {
-        if (this.type === 'text') { this.type = 'password'; }
-        else { this.type = 'text'; }
-    }
+    public toggleShowPassword(): void { this.type = this.type === 'text' ? 'password' : 'text'; } 
 
+    public writeValue(value: any) { this.notEscapedValue = value; this.innerValue = value; }//_escape(value); 
     private propagateChange = (__event: any) => { };
-
-    // From ControlValueAccessor interface
-    public writeValue(value: any) {
-        this.innerValue = value;//_escape(value);
-        this.notEscapedValue = value;
-    }
     public registerOnChange(fn: any) { this.propagateChange = fn; }
     public registerOnTouched(__funct: any) { }
 }
