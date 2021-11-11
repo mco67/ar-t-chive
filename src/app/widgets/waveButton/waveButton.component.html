@@ -1,4 +1,4 @@
 <div class="rippleButton {{buttonClass}} {{buttonType}}" (click)="internalClick($event)">
   <span class="rippleCircle" [style.top]="rippleTop" [style.left]="rippleLeft" (animationend)="animationEnd()"></span>
-  <span>{{ label }}</span>
+  <span [translate]="label"></span>
 </div>
