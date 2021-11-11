@@ -10,10 +10,14 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { HttpClientModule } from "@angular/common/http";
+import { WaveButtonComponent } from './widgets/waveButton/waveButton.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
 	declarations: [
-		AppComponent
+		AppComponent,
+		WaveButtonComponent,
+		LoginComponent
 	],
 	imports: [
 		HttpClientModule,

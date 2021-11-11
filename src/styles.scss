@@ -1,1 +1,62 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+    height: 100%;
+    font-size: 58%;
+    font-family: 'Open Sans', sans-serif;
+    background: var(--mainBgColor);
+
+    /* Define colors */
+    --white: #fefefe;
+    --smoothBlue: #305b9c;
+    --deepBlue: #22416d;
+    --veryLightGray: #f5f5f5;
+    --ligthGray: #cecece;
+    --justGray: #969696;
+    --mediumGray: #555555;
+    --darkGray: #333333;
+
+    /* Define appli colors */
+    --menuColor: var(--smoothBlue);
+    --menuSelColor: var(--deepBlue);
+    --headerColor: var(--white);
+    --mainBgColor: var(--veryLightGray);
+    --textColor: var(--mediumGray);
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.scrollY {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.scrollY::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+    background-color: transparent;
+}
+
+.scrollY::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    border-radius: 1px;
+}
+
+/* Input stuff */
+*:focus {
+    outline: none;
+}
+
+input {
+    font-family: 'Open Sans', sans-serif;
+}
+
+input.ng-invalid.ng-dirty {
+    border: 1px red solid;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+

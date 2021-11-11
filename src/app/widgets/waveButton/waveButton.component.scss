@@ -1,0 +1,62 @@
+.rippleButton {
+    position: relative;
+    min-width: 100px;
+    border-radius: 3px;
+    text-align: center;
+    padding: 6px 10px;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.4rem;
+    background: var(--smoothBlue);
+    overflow: hidden;
+    border: solid 1px var(--smoothBlue);
+    color: white;
+    font-weight: 300;
+    text-decoration: none;
+    user-select: none;
+    margin-left: 10px;
+}
+
+.disabled {
+    opacity: 0.3;
+    cursor: default;
+    pointer-events: none;
+}
+
+.secondary {
+    background: var(--justGray);
+    border: solid 1px var(--justGray);
+}
+
+
+.rippleCircle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+
+    .is-active & {
+        animation: a-ripple .4s ease-in;
+    }
+}
+
+@keyframes a-ripple {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    100% {
+        width: 200%;
+        padding-bottom: 200%;
+        opacity: 0;
+    }
+}
