@@ -1,5 +1,14 @@
-login component
-<br/><br/>
-{{ 'common.helloWorld' | translate }}
-<a (click)="signIn()">signIn user</a>
-<waveButton label="common.helloWorld"></waveButton>
+<div class="loginContainer">
+    <div class="loginContainer-info">
+        <img class="loginContainer-info-logo" src="/assets/images/login/login.jpeg">
+        <div translate="login.welcome"></div>
+    </div>
+    <div class="loginContainer-main">
+        <div class="loginContainer-main-info" translate="login.logon"></div>
+        <form [formGroup]="loginForm" novalidate (ngSubmit)="signIn()">
+            <textInput [formControl]="controls.login" label="login.login"></textInput>
+            <textInput [formControl]="controls.password" label="login.password" [password]="true"></textInput>
+            <waveButton label="login.connect" type="submit" [disabled]="loginForm.invalid"></waveButton>
+        </form>
+    </div>
+</div>

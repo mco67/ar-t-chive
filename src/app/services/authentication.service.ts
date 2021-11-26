@@ -16,11 +16,13 @@ export class AuthenticationService {
 
     public async signIn(login: string, password: string): Promise<any> {
         try {
-            this.userCredential = await this.auth.signInWithEmailAndPassword(login, password)
+            await this.auth.signInWithEmailAndPassword(login, password);
             this.logger.info(`[authenticationService] signIn -- ${login} -- SUCCESS`);
         }
         catch (error: any) {
             this.logger.error(`[authenticationService] signIn -- ${login} -- ERROR -- ${error.message}`);
+            //throw new Error(error.message);
+            return null;
         }
     }
 
@@ -31,6 +33,7 @@ export class AuthenticationService {
         }
         catch (error: any) {
             this.logger.error(`[authenticationService] signOut -- ERROR -- ${error.message}`);
+            throw new Error(error.message);
         }
     }
 

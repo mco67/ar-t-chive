@@ -13,6 +13,7 @@ import { WaveButtonComponent } from './widgets/waveButton/waveButton.component';
 import { LoginComponent } from './login/login.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TextInputComponent } from './widgets/textInput/textInput.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http);
@@ -27,6 +28,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 	imports: [
 		HttpClientModule,
 		BrowserModule,
+		FormsModule,
+        ReactiveFormsModule,
 		TranslateModule.forRoot({
 			defaultLanguage: 'en',
 			loader: {

@@ -1,18 +1,18 @@
-textField {
+textInput {
     display: block;
     position: relative;
     font-family: inherit;
 }
 
-.textField-readOnly {
+.textInput-readOnly {
     font-size: 1.0rem;
 }
 
-.textFieldError {
+.textInputError {
     color: #721c24;
 }
 
-.textFieldErrorDetails {
+.textInputErrorDetails {
     color: #721c24;
     background: #f8d7da;
     margin: -7px 0 8px;
@@ -22,7 +22,7 @@ textField {
     width: 280px;
 }
 
-.textFieldShowPassword {
+.textInputShowPassword {
     position: absolute;
     top: 21px;
     right: 6px;
@@ -36,17 +36,16 @@ textField {
     }
 }
 
-textfield {
-    .textField-label {
+textInput {
+    .textInput-label {
         margin-bottom: 4px;
-        color: var(--main-text-color);
-        font-size: 1.2rem;
+        color: var(--mainTextColor);
+        font-size: 1.3rem;
         font-weight: 600;
-        text-transform: uppercase;
         user-select: none;
     }
 
-    .textField-value {
+    .textInput-value {
         font-size: 1.2rem;
         margin-bottom: 10px;
     }
@@ -56,19 +55,20 @@ textfield {
         padding: 0 0 0 4px;
         width: 300px;
         margin-bottom: 10px;
-        border: solid 1px var(--separator-light-color);
+        color: var(--mainTextColor);
+        border: solid 1px var(--textInputBgColor);
         padding: 6px 8px;
-        background: var(--droplist-background);
+        background: var(--textInputBgColor);
         border-radius: 3px;
 
         &:hover, &:focus {
-            border: solid 1px var(--separator-color);
+            border: solid 1px var(--widgetFocusColor);
         }
 
         &:focus-visible {
             outline: 0;
-            border-color: var(--active-color);
-            box-shadow: 0 0 0 1px var(--active-color);
+            border-color: var(--widgetFocusColor);
+            box-shadow: 0 0 0 1px var(--widgetFocusColor);
         }
 
         &::placeholder {

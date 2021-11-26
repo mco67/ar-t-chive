@@ -4,22 +4,12 @@ html {
     font-family: 'Open Sans', sans-serif;
     background: var(--mainBgColor);
 
-    /* Define colors */
-    --white: #fefefe;
-    --smoothBlue: #305b9c;
-    --deepBlue: #22416d;
-    --veryLightGray: #f5f5f5;
-    --ligthGray: #cecece;
-    --justGray: #969696;
-    --mediumGray: #555555;
-    --darkGray: #333333;
+    --mainTextColor: #fefefe;
+    --windowBgColor: #4b4e53;
 
-    /* Define appli colors */
-    --menuColor: var(--smoothBlue);
-    --menuSelColor: var(--deepBlue);
-    --headerColor: var(--white);
-    --mainBgColor: var(--veryLightGray);
-    --textColor: var(--mediumGray);
+    /* Define widgets colors */
+    --widgetFocusColor: #1c8cfd;
+    --textInputBgColor: #27282b;
 }
 
 body {

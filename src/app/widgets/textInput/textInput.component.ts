@@ -1,8 +1,11 @@
 import { Component, Input, ViewChild, ElementRef, forwardRef, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR, FormControl, ControlValueAccessor } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
 import { Subscription } from 'rxjs/internal/Subscription';
-
+import * as _escape from '../../libs/escape/lodash.escape';
+import { debounce } from "rxjs/operators";
+import { timer } from "rxjs";
 @Component({
     selector: 'textInput',
     styleUrls: ['./textInput.component.scss'],
@@ -23,7 +26,7 @@ export class TextInputComponent implements ControlValueAccessor {
 
     private notEscapedValue: string = '';
     private subscription: Subscription | null = null;
-    private formErrors: any | null = null;
+    private subject: Subject<string> = new Subject();
 
     @Input() formControl: FormControl = new FormControl();
     @Input() readOnly: boolean = false;
@@ -48,15 +51,16 @@ export class TextInputComponent implements ControlValueAccessor {
     ) { }
 
     public ngOnInit(): void {
-        this.formErrors = this.formControl.errors;
         if (this.password) { this.type = 'password'; }
+        this.subject.pipe(debounce(() => timer(500))).subscribe(value => { this.onChangeDebounced(value); });
 
-        this.subscription = this.formControl.statusChanges.subscribe((status) => {
+       this.subscription = this.formControl.statusChanges.subscribe((status) => {
             if (status === "INVALID") {
-                Object.keys(this.formErrors).forEach((key) => {
+                const formErrors:any  = this.formControl.errors;
+                Object.keys(formErrors.errors).forEach((key) => {
                     if (key === "required") { this.errors.push('errorMandatoryField'); }
                     else if (key === "email") { this.errors.push('emailfield-error'); }
-                    else { this.errors.push(this.formErrors[key]); }
+                    else { this.errors.push(formErrors[key]); }
                 });
                 this.errorClass = "textInputError";
             }
@@ -75,19 +79,23 @@ export class TextInputComponent implements ControlValueAccessor {
     }
 
     public onChange(__event: Event, value: any) {
+        this.subject.next(value);
+    }
+    private onChangeDebounced(value: string) {
         this.notEscapedValue = value;
         this.propagateChange(this.notEscapedValue);
         this.errors = [];
+        const formErrors:any  = this.formControl.errors;
 
-        if (this.formErrors) {
-            Object.keys(this.formErrors).forEach((key) => {
+        if (formErrors) {
+            Object.keys(formErrors).forEach((key) => {
                 if (this.errors.length === 0) {
                     if (key === "required") { this.errors.push('errorMandatoryField'); }
                     else if (key === "whitespace") { this.errors.push('errorWhitespaceOnly'); }
                     else if (key === "email") { this.errors.push('emailfield-error'); }
                     else if (key === "pattern") { this.errors.push('invalidCharacter'); }
-                    else if (key === "maxlength") { this.errors.push(this.i18n.instant('fieldMaxLengthError', { length: this.formErrors[key].requiredLength })); }
-                    else if (key === "minlength") { this.errors.push(this.i18n.instant('fieldMinLengthError', { length: this.formErrors[key].requiredLength })); }
+                    else if (key === "maxlength") { this.errors.push(this.i18n.instant('fieldMaxLengthError', { length: formErrors[key].requiredLength })); }
+                    else if (key === "minlength") { this.errors.push(this.i18n.instant('fieldMinLengthError', { length: formErrors[key].requiredLength })); }
                     else { this.errors.push((this.formControl as any).errors[key]); }
                 }
             });
@@ -99,7 +107,7 @@ export class TextInputComponent implements ControlValueAccessor {
 
     public toggleShowPassword(): void { this.type = this.type === 'text' ? 'password' : 'text'; } 
 
-    public writeValue(value: any) { this.notEscapedValue = value; this.innerValue = value; }//_escape(value); 
+    public writeValue(value: any) { this.notEscapedValue = value; this.innerValue = _escape(value); }
     private propagateChange = (__event: any) => { };
     public registerOnChange(fn: any) { this.propagateChange = fn; }
     public registerOnTouched(__funct: any) { }
