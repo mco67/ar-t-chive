@@ -4,12 +4,20 @@ html {
     font-family: 'Open Sans', sans-serif;
     background: var(--mainBgColor);
 
+    /* Colors */
+    --blue: #305b9c;
+    --gray: #969696;
+
     --mainTextColor: #fefefe;
     --windowBgColor: #4b4e53;
 
     /* Define widgets colors */
     --widgetFocusColor: #1c8cfd;
     --textInputBgColor: #27282b;
+
+    --buttonPrimaryBgColor: var(--blue);
+    --buttonSecondaryBgColor: var(--gray);
+
 }
 
 body {

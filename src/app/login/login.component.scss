@@ -3,9 +3,9 @@ login {
     height: 100%;
     align-items: center;
     justify-content: center;
-    background-image: url('/assets/images/login/background.jpg');
+    background-image: url('/assets/images/login/login.jpeg');
     background-size: cover;
-    
+
     .loginContainer {
         display: flex;
         background-color: transparent;
@@ -35,7 +35,7 @@ login {
             background-color: var(--windowBgColor);
             border-radius: 0 4px 4px 0;
             font-size: 1.8rem;
-            padding: 35px;
+            padding: 35px 44px;
 
             .loginContainer-main-info {
                 font-size: 2rem;
