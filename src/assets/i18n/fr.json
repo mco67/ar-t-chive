@@ -1,12 +1,11 @@
 {
     "common":  {
-        "helloWorld": "Bonjour le monde!"
+        "connect": "Se connecter"
     },
     "login": {
         "welcome": "Bienvenue sur Ar-t-chive",
         "logon": "Connectez vous",
         "login": "Identifiant",
-        "password": "Mot de passe",
-        "connect": "Se connecter"
+        "password": "Mot de passe"
     }
 }

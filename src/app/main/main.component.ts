@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -9,7 +10,17 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class MainComponent {
 
-    constructor(private authService: AuthenticationService) {
+    constructor(
+		private router: Router,
+		private authService: AuthenticationService) {
+	}
+
+	public signIn() {
+		this.router.navigate(['/login']);
+	}
+
+	public landing() {
+		this.router.navigate(['/']);
 	}
 
 	public async signOut() {

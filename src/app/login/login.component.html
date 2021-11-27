@@ -8,7 +8,7 @@
         <form [formGroup]="loginForm" novalidate (ngSubmit)="signIn()">
             <textInput [formControl]="controls.login" label="login.login"></textInput>
             <textInput [formControl]="controls.password" label="login.password" [password]="true"></textInput>
-            <waveButton label="login.connect" type="submit" [disabled]="loginForm.invalid"></waveButton>
+            <waveButton label="common.connect" type="submit" [disabled]="loginForm.invalid"></waveButton>
         </form>
     </div>
 </div>

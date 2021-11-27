@@ -1,7 +1,12 @@
 <header>
-    Ar(t)chive
-	<div class="main-header_right">Login</div>
+    <div class="main-header_title" (click)="landing()">Ar-t-chive</div>
+    <div class="main-header_right" (click)="signIn()">
+        
+        <div class="main-header_login">
+            <icon name="account_circle"></icon>
+            <div translate="common.connect"></div>
+        </div>
+
+    </div>
 </header>
-<section>
-    <a (click)="signOut()">signOut user</a>
-</section>
+<router-outlet></router-outlet>

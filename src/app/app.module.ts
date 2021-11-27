@@ -14,16 +14,22 @@ import { LoginComponent } from './login/login.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TextInputComponent } from './widgets/textInput/textInput.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IconComponent } from './widgets/icon/icon.component';
+import { MainComponent } from './main/main.component';
+import { LandingComponent } from './landing/landing.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http);
 }
 @NgModule({
 	declarations: [
+		MainComponent,
+		IconComponent,
 		AppComponent,
 		WaveButtonComponent,
 		TextInputComponent,
-		LoginComponent
+		LoginComponent,
+		LandingComponent
 	],
 	imports: [
 		HttpClientModule,

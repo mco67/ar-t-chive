@@ -1,12 +1,11 @@
 {
-    "common": {
-        "helloWorld": "Hello world!"
+    "common":  {
+        "connect": "Connect"
     },
     "login": {
         "welcome": "Welcome on Ar-t-chive",
         "logon": "log on",
         "login": "Login",
-        "password": "Password",
-        "connect": "Connect"
+        "password": "Password"
     }
 }

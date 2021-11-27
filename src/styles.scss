@@ -2,13 +2,15 @@ html {
     height: 100%;
     font-size: 58%;
     font-family: 'Open Sans', sans-serif;
-    background: var(--mainBgColor);
+    background: var(--dark-gray);
 
     /* Colors */
+    --white: #fefefe;
     --blue: #305b9c;
     --gray: #969696;
+    --dark-gray: #151515;
 
-    --mainTextColor: #fefefe;
+    --mainTextColor: var(--white);
     --windowBgColor: #4b4e53;
 
     /* Define widgets colors */
