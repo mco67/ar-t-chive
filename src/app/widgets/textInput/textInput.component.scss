@@ -40,8 +40,6 @@ textInput {
     .textInput-label {
         margin-bottom: 4px;
         color: var(--mainTextColor);
-        font-size: 1.3rem;
-        font-weight: 600;
         user-select: none;
     }
 
@@ -57,9 +55,10 @@ textInput {
         margin-bottom: 10px;
         color: var(--mainTextColor);
         border: solid 1px var(--textInputBgColor);
-        padding: 6px 8px;
+        padding: 12px;
         background: var(--textInputBgColor);
         border-radius: 3px;
+        font-size: 1.8rem;
 
         &:hover, &:focus {
             border: solid 1px var(--widgetFocusColor);
@@ -72,6 +71,7 @@ textInput {
         }
 
         &::placeholder {
+            font-size: 1.8rem;
             color: rgb(141, 141, 141);
         }
     }

@@ -7,10 +7,8 @@ main {
         display: flex;
         flex-direction: row;
         align-items: center;
-        flex: 0 0 50px;
+        flex: 0 0 60px;
         padding: 0 4px;
-        color: var(--white);
-
 
         .main-header_title {
             margin: 0 10px;
@@ -25,7 +23,6 @@ main {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                font-size: 1.6rem;
                 cursor: pointer;
                 icon { margin-right: 8px; }
                 padding: 7px 10px;

@@ -3,9 +3,10 @@
         "connect": "Se connecter"
     },
     "login": {
-        "welcome": "Bienvenue sur Ar-t-chive",
+        "title": "Connectez vous ou créez votre compte",
         "logon": "Connectez vous",
         "login": "Identifiant",
-        "password": "Mot de passe"
+        "password": "Mot de passe",
+        "forgetPassword": "Mot de passe oublié ?"
     }
 }

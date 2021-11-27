@@ -25,7 +25,9 @@ html {
 body {
     height: 100%;
     margin: 0;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
+    color: var(--mainTextColor);
+    user-select: none;
 }
 
 .scrollY {
@@ -50,6 +52,7 @@ body {
 
 input {
     font-family: 'Open Sans', sans-serif;
+    font-size: 1.8rem;
 }
 
 input.ng-invalid.ng-dirty {

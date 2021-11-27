@@ -3,9 +3,10 @@
         "connect": "Connect"
     },
     "login": {
-        "welcome": "Welcome on Ar-t-chive",
+        "connect": "Connect or create an account",
         "logon": "log on",
         "login": "Login",
-        "password": "Password"
+        "password": "Password",
+        "forgetPassword": "Forgot your password?"
     }
 }

@@ -6,7 +6,6 @@
     padding: 6px 10px;
     display: block;
     cursor: pointer;
-    font-size: 1.4rem;
     background: var(--buttonPrimaryBgColor);
     overflow: hidden;
     border: solid 1px var(--buttonPrimaryBgColor);
@@ -14,6 +13,7 @@
     font-weight: 300;
     text-decoration: none;
     user-select: none;
+    font-size: 1.8rem;
 }
 
 .disabled {

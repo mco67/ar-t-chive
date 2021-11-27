@@ -27,9 +27,10 @@ export class LoginComponent {
 		this.controls = this.loginForm.controls;
 	}
 
-	public ngOnInit() {
+	public forgetPassword(): void {
 
 	}
+
 	public async signIn() {
 		try {
 			this.authService.signIn(this.controls.login.value, this.controls.password.value);
