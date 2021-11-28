@@ -38,13 +38,14 @@ textInput {
 
 textInput {
     .textInput-label {
-        margin-bottom: 4px;
+        margin-bottom: 8px;
         color: var(--mainTextColor);
         user-select: none;
+        font-size: 1.8rem;
     }
 
     .textInput-value {
-        font-size: 1.2rem;
+        font-size: 1.8rem;
         margin-bottom: 10px;
     }
 
@@ -54,20 +55,20 @@ textInput {
         width: 300px;
         margin-bottom: 10px;
         color: var(--mainTextColor);
-        border: solid 1px var(--textInputBgColor);
-        padding: 12px;
+        border: none;
+        padding: 13px;
         background: var(--textInputBgColor);
         border-radius: 3px;
-        font-size: 1.8rem;
+        font-size: 2rem;
+        transition: box-shadow 0.3s ease;
 
         &:hover, &:focus {
-            border: solid 1px var(--widgetFocusColor);
+            box-shadow: 0 0 0 3px var(--widgetFocusColor);
         }
 
         &:focus-visible {
             outline: 0;
             border-color: var(--widgetFocusColor);
-            box-shadow: 0 0 0 1px var(--widgetFocusColor);
         }
 
         &::placeholder {

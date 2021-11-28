@@ -11,7 +11,8 @@ export class WaveButtonComponent implements OnChanges {
 	public rippleLeft: string = '50%';
 	public buttonClass: string = '';
 
-	@Input() public label: string = '';
+	@Input() public icon: string|null = null;
+	@Input() public label: string|null = null;
 	@Input() public disabled: boolean = false;
 	@Input() public type: string = 'button';
 	@Input() public buttonType: string = ''

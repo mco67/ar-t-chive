@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IconComponent } from './widgets/icon/icon.component';
 import { MainComponent } from './main/main.component';
 import { LandingComponent } from './landing/landing.component';
+import { ForgetPasswordComponent } from './login/forgetPassword/forgetPassword.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http);
@@ -29,6 +30,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 		WaveButtonComponent,
 		TextInputComponent,
 		LoginComponent,
+		ForgetPasswordComponent,
 		LandingComponent
 	],
 	imports: [

@@ -1,12 +1,7 @@
 <header>
     <div class="main-header_title" (click)="landing()">Ar-t-chive</div>
-    <div class="main-header_right" (click)="signIn()">
-        
-        <div class="main-header_login">
-            <icon name="account_circle"></icon>
-            <div translate="common.connect"></div>
-        </div>
-
+    <div class="main-header_right">
+        <waveButton (click)="signIn()" label="common.connect" icon="account_circle" type="button" buttonType="outlined"></waveButton>
     </div>
 </header>
 <router-outlet></router-outlet>

@@ -1,14 +1,17 @@
 .rippleButton {
     position: relative;
-    min-width: 100px;
-    border-radius: 3px;
+    border-radius: 4px;
     text-align: center;
     padding: 8px 12px;
-    display: block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     cursor: pointer;
-    background: var(--buttonPrimaryBgColor);
+    background: transparent;
     overflow: hidden;
     border: solid 1px var(--buttonPrimaryBgColor);
+    background: var(--buttonPrimaryBgColor);
+
     color: white;
     font-weight: 300;
     text-decoration: none;
@@ -25,6 +28,20 @@
 .secondary {
     background: var(--buttonSecondaryBgColor);
     border: solid 1px var(--buttonSecondaryBgColor);
+}
+
+.outlined {
+    background: transparent;
+    border: solid 3px transparent;
+    transition: border 0.3s ease;
+
+    &:hover {
+        border: solid 3px var(--buttonPrimaryBgColor);
+    }
+}
+
+.rippleSeparator { 
+    width: 8px;
 }
 
 .rippleCircle {
