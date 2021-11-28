@@ -8,14 +8,14 @@ html {
     --white: #fefefe;
     --blue: #305b9c;
     --gray: #969696;
+    --just-gray: #27282b;
     --dark-gray: #151515;
 
     --mainTextColor: var(--white);
-    --windowBgColor: #4b4e53;
 
     /* Define widgets colors */
-    --widgetFocusColor: #1c8cfd;
-    --textInputBgColor: #27282b;
+    --widgetFocusColor: var(--blue);
+    --textInputBgColor: var(--just-gray);
 
     --buttonPrimaryBgColor: var(--blue);
     --buttonSecondaryBgColor: var(--gray);
@@ -36,7 +36,7 @@ body {
 }
 
 .scrollY::-webkit-scrollbar {
-    width: var(--scrollbar-width);
+    //width: var(--scrollbar-width);
     background-color: transparent;
 }
 
