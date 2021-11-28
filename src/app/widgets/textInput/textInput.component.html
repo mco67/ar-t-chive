@@ -12,7 +12,7 @@
         [type]="type" dir="auto" placeholder="{{placeHolder | translate}}" autocomplete="{{autoComplete}}">
     <!--svg-img *ngIf="passwordEye" iconId="show-pwd" class="textFieldShowPassword" (click)="toggleShowPassword()">
     </svg-img-->
-    <div *ngIf="!formControl.pristine && !formControl.valid" class="textFieldErrorDetails">
+    <div *ngIf="!formControl.pristine && !formControl.valid" class="textInputErrorDetails">
         <div *ngFor="let error of errors" [translate]="error"></div>
     </div>
 </ng-container>

@@ -13,18 +13,22 @@ login {
       flex: 1;
       height: 100%;
       display: flex;
-      align-items: center;
       flex-direction: column;
 
       .login-title {
          font-size: 2.8rem;
-         margin: 60px 40px;
+         margin: 60px 0 40px;
       }
 
       .login-forgetPassword {
          text-decoration: underline;
          margin: 5px 0 15px;
          cursor: pointer;
+      }
+
+      .login-error { 
+         color: var(--red);
+         margin: 5px 0 10px;
       }
    }
 }

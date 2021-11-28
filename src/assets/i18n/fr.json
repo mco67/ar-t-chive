@@ -7,6 +7,14 @@
         "logon": "Connectez vous",
         "login": "Identifiant",
         "password": "Mot de passe",
-        "forgetPassword": "Mot de passe oublié ?"
+        "forgetPassword": "Mot de passe oublié ?",
+        "wrongUserOrPassword": "Mauvais identifiant ou mot de passe"
+    },
+    "textInput": {
+        "emailFormatError": "Ce champ doit contenir une adresse e-mail valide",
+        "mandatoryFieldError": "Ce champ est obligatoire",
+        "fieldMaxLengthError": "Ce champ ne doit pas dépasser {{n}} charactères",
+        "fieldMinLengthError": "Ce champ ne doit contenir au moins {{n}} charactères",
+        "invalidCharacters": "Ce champ contient un ou des caractères invalides"
     }
 }

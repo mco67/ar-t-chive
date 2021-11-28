@@ -6,6 +6,7 @@
     <form [formGroup]="loginForm" novalidate (ngSubmit)="signIn()">
         <textInput [formControl]="controls.login" label="login.login"></textInput>
         <textInput [formControl]="controls.password" label="login.password" [password]="true"></textInput>
+        <div *ngIf="errorMessage" class="login-error" [translate]="errorMessage"></div>
         <div class="login-forgetPassword" (click)="forgetPassword()" translate="login.forgetPassword"></div>
         <waveButton label="common.connect" type="submit" [disabled]="loginForm.invalid"></waveButton>
     </form>

@@ -1,8 +1,10 @@
 
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { FirebaseError } from '@firebase/util';
 import firebase from 'firebase/compat/app';
 import { NGXLogger } from 'ngx-logger';
+import { ArtError } from '../models/artError.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -20,9 +22,8 @@ export class AuthenticationService {
             this.logger.info(`[authenticationService] signIn -- ${login} -- SUCCESS`);
         }
         catch (error: any) {
-            this.logger.error(`[authenticationService] signIn -- ${login} -- ERROR -- ${error.message}`);
-            //throw new Error(error.message);
-            return null;
+            this.logger.error(`[authenticationService] signIn -- ${login} -- ERROR -- ${error.code} -- ${error.message}`);
+            throw ArtError.createFromFirebaseError(error);
         }
     }
 
@@ -33,7 +34,7 @@ export class AuthenticationService {
         }
         catch (error: any) {
             this.logger.error(`[authenticationService] signOut -- ERROR -- ${error.message}`);
-            throw new Error(error.message);
+            throw ArtError.createFromFirebaseError(error);
         }
     }
 

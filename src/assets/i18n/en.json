@@ -1,5 +1,5 @@
 {
-    "common":  {
+    "common": {
         "connect": "Connect"
     },
     "login": {
@@ -7,6 +7,14 @@
         "logon": "log on",
         "login": "Login",
         "password": "Password",
-        "forgetPassword": "Forgot your password?"
+        "forgetPassword": "Forgot your password?",
+        "wrongUserOrPassword": "Wrong login or password"
+    },
+    "textInput": {
+        "emailFormatError": "This field must contain a valid email address",
+        "mandatoryFieldError": "This field is mandatory",
+        "fieldMaxLengthError": "This field must not exceed {{n}} characters",
+        "fieldMinLengthError": "This field must contain at least {{n}} characters",
+        "invalidCharacters": "This field contains one or more invalid characters"
     }
 }

@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -12,8 +13,10 @@ export class LoginComponent {
 
 	public loginForm: FormGroup;
 	public controls: any;
+	public errorMessage: string | null = null;
 
 	constructor(
+		private router: Router,
 		private formBuilder: FormBuilder,
 		private authService: AuthenticationService) {
 
@@ -28,15 +31,21 @@ export class LoginComponent {
 	}
 
 	public forgetPassword(): void {
-
+		this.router.navigate(['/forgetPassword']);
 	}
 
 	public async signIn() {
 		try {
-			this.authService.signIn(this.controls.login.value, this.controls.password.value);
+			await this.authService.signIn(this.controls.login.value, this.controls.password.value)
 		}
 		catch (error: any) {
-			console.error("coucou" + error.message);
+			switch (error.code) {
+				case 'auth/user-not-found':
+				case 'auth/wrong-password':
+					this.errorMessage = 'login.wrongUserOrPassword'; break;
+				default: break;
+			}
+			return;
 		}
 	}
 

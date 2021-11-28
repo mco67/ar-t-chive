@@ -54,19 +54,19 @@ export class TextInputComponent implements ControlValueAccessor {
         if (this.password) { this.type = 'password'; }
         this.subject.pipe(debounce(() => timer(500))).subscribe(value => { this.onChangeDebounced(value); });
 
-       this.subscription = this.formControl.statusChanges.subscribe((status) => {
+       /*this.subscription = this.formControl.statusChanges.subscribe((status) => {
             if (status === "INVALID") {
-                const formErrors:any  = this.formControl.errors;
-                Object.keys(formErrors.errors).forEach((key) => {
-                    if (key === "required") { this.errors.push('errorMandatoryField'); }
-                    else if (key === "email") { this.errors.push('emailfield-error'); }
+                const formErrors:any = this.formControl.errors;
+                Object.keys(formErrors).forEach((key) => {
+                    if (key === "required") { this.errors.push('textInput.mandatoryFieldError'); }
+                    else if (key === "email") { this.errors.push('textInput.emailFormatError'); }
                     else { this.errors.push(formErrors[key]); }
                 });
                 this.errorClass = "textInputError";
             }
             else { this.errorClass = null; }
             this.changeDetectorRef.detectChanges();
-        });
+        });*/
     }
 
     public ngAfterViewInit(): void {
@@ -85,17 +85,16 @@ export class TextInputComponent implements ControlValueAccessor {
         this.notEscapedValue = value;
         this.propagateChange(this.notEscapedValue);
         this.errors = [];
-        const formErrors:any  = this.formControl.errors;
+        const formErrors:any = this.formControl.errors;
 
         if (formErrors) {
             Object.keys(formErrors).forEach((key) => {
                 if (this.errors.length === 0) {
-                    if (key === "required") { this.errors.push('errorMandatoryField'); }
-                    else if (key === "whitespace") { this.errors.push('errorWhitespaceOnly'); }
-                    else if (key === "email") { this.errors.push('emailfield-error'); }
-                    else if (key === "pattern") { this.errors.push('invalidCharacter'); }
-                    else if (key === "maxlength") { this.errors.push(this.i18n.instant('fieldMaxLengthError', { length: formErrors[key].requiredLength })); }
-                    else if (key === "minlength") { this.errors.push(this.i18n.instant('fieldMinLengthError', { length: formErrors[key].requiredLength })); }
+                    if (key === "required") { this.errors.push('textInput.mandatoryFieldError'); }
+                    else if (key === "email") { this.errors.push('textInput.emailFormatError'); }
+                    else if (key === "pattern") { this.errors.push('textInput.invalidCharacters'); }
+                    else if (key === "maxlength") { this.errors.push(this.i18n.instant('textInput.fieldMaxLengthError', { n: formErrors[key].requiredLength })); }
+                    else if (key === "minlength") { this.errors.push(this.i18n.instant('textInput.fieldMinLengthError', { n: formErrors[key].requiredLength })); }
                     else { this.errors.push((this.formControl as any).errors[key]); }
                 }
             });

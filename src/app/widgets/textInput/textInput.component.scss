@@ -8,18 +8,9 @@ textInput {
     font-size: 1.0rem;
 }
 
-.textInputError {
-    color: #721c24;
-}
-
 .textInputErrorDetails {
-    color: #721c24;
-    background: #f8d7da;
-    margin: -7px 0 8px;
-    padding: 2px 4px;
-    border: solid 1px #f5c6cb;
-    border-radius: 3px;
-    width: 280px;
+    color: var(--red);
+    margin: 0 0 15px;
 }
 
 .textInputShowPassword {
@@ -62,18 +53,19 @@ textInput {
         font-size: 2rem;
         transition: box-shadow 0.3s ease;
 
-        &:hover, &:focus {
+        &:hover, &:focus,&:focus-visible  {
             box-shadow: 0 0 0 3px var(--widgetFocusColor);
         }
-
-        &:focus-visible {
-            outline: 0;
-            border-color: var(--widgetFocusColor);
-        }
-
-        &::placeholder {
-            font-size: 1.8rem;
-            color: rgb(141, 141, 141);
-        }
     }
+
+    .textInputError {
+        color: var(--red);
+        background: #f8d7da;
+        border: solid 1px #f8d7da;
+
+        &:hover, &:focus, &:focus-visible {
+            box-shadow: 0 0 0 3px #e65d69;
+        }
+    }    
 }
+
