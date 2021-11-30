@@ -1,6 +1,9 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription, timer } from 'rxjs';
+import { debounce } from 'rxjs/operators';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -14,11 +17,13 @@ export class LoginComponent {
 	public loginForm: FormGroup;
 	public controls: any;
 	public errorMessage: string | null = null;
+	private subscription: Subscription|null = null;
 
 	constructor(
 		private router: Router,
 		private formBuilder: FormBuilder,
-		private authService: AuthenticationService) {
+		private authService: AuthenticationService,
+		public auth: AngularFireAuth) {
 
 		this.loginForm = this.formBuilder.group({
 			login: ['', [Validators.required, Validators.email]],
@@ -28,6 +33,11 @@ export class LoginComponent {
 			)]
 		});
 		this.controls = this.loginForm.controls;
+		this.subscription =this.loginForm.valueChanges.subscribe(() => { this.errorMessage = null });
+	}
+
+	public ngOnDestroy(): void {
+		if (this.subscription) this.subscription.unsubscribe();
 	}
 
 	public forgetPassword(): void {
@@ -47,6 +57,10 @@ export class LoginComponent {
 			}
 			return;
 		}
+	}
+
+	public signInWithGoogle() {
+		this.authService.signInWithGoogle();
 	}
 
 }

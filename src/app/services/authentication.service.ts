@@ -1,7 +1,6 @@
 
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { FirebaseError } from '@firebase/util';
 import firebase from 'firebase/compat/app';
 import { NGXLogger } from 'ngx-logger';
 import { ArtError } from '../models/artError.model';
@@ -9,14 +8,13 @@ import { ArtError } from '../models/artError.model';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
 
-    private userCredential: firebase.auth.UserCredential | undefined;
-
     public constructor(
         private logger: NGXLogger,
         private auth: AngularFireAuth
-    ) { }
+    ) {
+    }
 
-    public async signIn(login: string, password: string): Promise<any> {
+    public async signIn(login: string, password: string) {
         try {
             await this.auth.signInWithEmailAndPassword(login, password);
             this.logger.info(`[authenticationService] signIn -- ${login} -- SUCCESS`);
@@ -27,7 +25,11 @@ export class AuthenticationService {
         }
     }
 
-    public async signOut(): Promise<any> {
+    public async signInWithGoogle() {
+        await this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    }
+
+    public async signOut() {
         try {
             await this.auth.signOut();
             this.logger.info(`[authenticationService] signOut -- SUCCESS`);
@@ -37,14 +39,4 @@ export class AuthenticationService {
             throw ArtError.createFromFirebaseError(error);
         }
     }
-
-    public createUser(): void {
-        this.auth.createUserWithEmailAndPassword('cordebard@gmail.com', 'H@f00id@');
-    }
-
-    public async deleteUser() {
-        const user = await this.auth.currentUser;
-        user?.delete();
-    }
-
 }

@@ -2,6 +2,10 @@
     <img src="/assets/images/login/login.jpeg">
 </div>
 <div class="login-form">
+
+    <waveButton label="signIn with google" (click)="signInWithGoogle()"></waveButton>
+
+
     <div class="login-title" translate="login.title"></div>
     <form [formGroup]="loginForm" novalidate (ngSubmit)="signIn()">
         <textInput [formControl]="controls.login" label="login.login"></textInput>

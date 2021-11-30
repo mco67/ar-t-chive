@@ -1,6 +1,9 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { User } from '../models/user.model';
 import { AuthenticationService } from '../services/authentication.service';
+import { UsersService } from '../services/users.services';
 
 @Component({
 	selector: 'main',
@@ -10,9 +13,19 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class MainComponent {
 
+	public currentUser: User|null = null;
+
     constructor(
 		private router: Router,
-		private authService: AuthenticationService) {
+		private authService: AuthenticationService,
+		private usersService: UsersService) {
+	}
+
+	public ngOnInit(): void {
+		this.usersService.currentUser.subscribe((user: User|null) => {
+			this.currentUser = user;
+			console.dir(this.currentUser);
+		});
 	}
 
 	public signIn() {
@@ -23,10 +36,7 @@ export class MainComponent {
 		this.router.navigate(['/']);
 	}
 
-	public async signOut() {
-		try { this.authService.signOut(); }
-		catch (error: any) {
-			console.error("coucou" + error.message);
-		}
+	public signOut() {
+		this.authService.signOut();
 	}
 }
