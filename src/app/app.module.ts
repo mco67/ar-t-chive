@@ -3,11 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { LoggerModule, NgxLoggerLevel } from "ngx-logger";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { WaveButtonComponent } from './widgets/waveButton/waveButton.component';
 import { LoginComponent } from './login/login.component';
@@ -18,10 +15,14 @@ import { IconComponent } from './widgets/icon/icon.component';
 import { MainComponent } from './main/main.component';
 import { LandingComponent } from './landing/landing.component';
 import { ForgetPasswordComponent } from './login/forgetPassword/forgetPassword.component';
+import { CreateExhibitionComponent } from './admin/exhibition/create/createExhibition.component';
+import { initializeApp } from 'firebase/app';
 
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http);
 }
+
+initializeApp(environment.firebase);
 @NgModule({
 	declarations: [
 		MainComponent,
@@ -31,7 +32,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 		TextInputComponent,
 		LoginComponent,
 		ForgetPasswordComponent,
-		LandingComponent
+		LandingComponent,
+		CreateExhibitionComponent
 	],
 	imports: [
 		HttpClientModule,
@@ -47,9 +49,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 			}
 		}),
 		LoggerModule.forRoot({ level: NgxLoggerLevel.DEBUG }),
-		AngularFireModule.initializeApp(environment.firebase),
-		AngularFireAuthModule,
-		AngularFirestoreModule,
 		AppRoutingModule
 	],
 	providers: [],

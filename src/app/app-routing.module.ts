@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateExhibitionComponent } from './admin/exhibition/create/createExhibition.component';
 import { LandingComponent } from './landing/landing.component';
 import { ForgetPasswordComponent } from './login/forgetPassword/forgetPassword.component';
 import { LoginComponent } from './login/login.component';
@@ -16,7 +17,8 @@ const routes: Routes = [
 		children: [
 			{ path: '', component: LandingComponent },
 			{ path: 'login', component: LoginComponent },
-			{ path: 'forgetPassword', component: ForgetPasswordComponent }
+			{ path: 'forgetPassword', component: ForgetPasswordComponent },
+			{ path: 'createExhibition', component: CreateExhibitionComponent }
 		]
 		//canActivate: [AngularFireAuthGuard],
 		//data: { authGuardPipe: redirectUnauthorizedToLogin }

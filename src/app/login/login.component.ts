@@ -1,9 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subscription, timer } from 'rxjs';
-import { debounce } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -17,13 +15,12 @@ export class LoginComponent {
 	public loginForm: FormGroup;
 	public controls: any;
 	public errorMessage: string | null = null;
-	private subscription: Subscription|null = null;
+	private subscription: Subscription | null = null;
 
 	constructor(
 		private router: Router,
 		private formBuilder: FormBuilder,
-		private authService: AuthenticationService,
-		public auth: AngularFireAuth) {
+		private authService: AuthenticationService) {
 
 		this.loginForm = this.formBuilder.group({
 			login: ['', [Validators.required, Validators.email]],
@@ -33,7 +30,7 @@ export class LoginComponent {
 			)]
 		});
 		this.controls = this.loginForm.controls;
-		this.subscription =this.loginForm.valueChanges.subscribe(() => { this.errorMessage = null });
+		this.subscription = this.loginForm.valueChanges.subscribe(() => { this.errorMessage = null });
 	}
 
 	public ngOnDestroy(): void {
@@ -46,7 +43,8 @@ export class LoginComponent {
 
 	public async signIn() {
 		try {
-			await this.authService.signIn(this.controls.login.value, this.controls.password.value)
+			await this.authService.signIn(this.controls.login.value, this.controls.password.value);
+			this.router.navigate(['/']);
 		}
 		catch (error: any) {
 			switch (error.code) {

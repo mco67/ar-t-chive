@@ -5,10 +5,9 @@
 
     <waveButton label="signIn with google" (click)="signInWithGoogle()"></waveButton>
 
-
     <div class="login-title" translate="login.title"></div>
     <form [formGroup]="loginForm" novalidate (ngSubmit)="signIn()">
-        <textInput [formControl]="controls.login" label="login.login"></textInput>
+        <textInput #loginInput [formControl]="controls.login" label="login.login" [focus]="true"></textInput>
         <textInput [formControl]="controls.password" label="login.password" [password]="true"></textInput>
         <div *ngIf="errorMessage" class="login-error" [translate]="errorMessage"></div>
         <div class="login-forgetPassword" (click)="forgetPassword()" translate="login.forgetPassword"></div>
