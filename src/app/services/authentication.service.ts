@@ -11,21 +11,13 @@ import { User } from '../models/user.model';
 export class AuthenticationService {
 
     private auth: Auth;
-    private currentUser!: Subject<User>;
-    
+    public currentUserId: Subject<string | null> = new Subject<string | null>();
+
     public constructor(private logger: NGXLogger) {
         this.auth = getAuth();
-
-        onAuthStateChanged(this.auth, (user) => {
-            if (user) {
-              const uid = user.uid;
-              
-            } 
-            else {
-              // User is signed out
-              // ...
-            }
-          });
+        onAuthStateChanged(this.auth, (firebaseUser) => {
+            this.currentUserId.next(firebaseUser ? firebaseUser.uid : null);            
+        });
     }
 
     public async signIn(login: string, password: string) {

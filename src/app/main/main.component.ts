@@ -13,19 +13,13 @@ import { UsersService } from '../services/users.services';
 })
 export class MainComponent {
 
-	public currentUser: User|null = null;
-
     constructor(
 		private router: Router,
 		private authService: AuthenticationService,
-		private usersService: UsersService) {
+		public usersService: UsersService) {
 	}
 
 	public ngOnInit(): void {
-		this.usersService.currentUser.subscribe((user: User|null) => {
-			this.currentUser = user;
-			console.dir(this.currentUser);
-		});
 	}
 
 	public signIn() {
