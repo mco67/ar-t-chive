@@ -2,6 +2,9 @@
     "common":  {
         "connect": "Se connecter"
     },
+    "main": {
+        "logout": "Se déconnecter"
+    },
     "login": {
         "title": "Connectez vous ou créez votre compte",
         "logon": "Connectez vous",

@@ -2,8 +2,11 @@
     "common": {
         "connect": "Connect"
     },
+    "main": {
+        "logout": "Log out"
+    },
     "login": {
-        "connect": "Connect or create an account",
+        "title": "Connect or create an account",
         "logon": "log on",
         "login": "Login",
         "password": "Password",

@@ -14,9 +14,7 @@ export class CreateExhibitionComponent {
     }
 
     public ngOnInit() {
-        this.usersService.getUserFromDB('mathieu').then((user) => {
-            console.error(user);
-        })
+     
 
     }
 

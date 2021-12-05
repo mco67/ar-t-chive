@@ -4,6 +4,7 @@ import { CreateExhibitionComponent } from './admin/exhibition/create/createExhib
 import { LandingComponent } from './landing/landing.component';
 import { ForgetPasswordComponent } from './login/forgetPassword/forgetPassword.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './login/profile/profile.component';
 import { MainComponent } from './main/main.component';
 //import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/compat/auth-guard';
 
@@ -18,6 +19,7 @@ const routes: Routes = [
 			{ path: '', component: LandingComponent },
 			{ path: 'login', component: LoginComponent },
 			{ path: 'forgetPassword', component: ForgetPasswordComponent },
+			{ path: 'profile', component: ProfileComponent },
 			{ path: 'createExhibition', component: CreateExhibitionComponent }
 		]
 		//canActivate: [AngularFireAuthGuard],

@@ -17,6 +17,9 @@ import { LandingComponent } from './landing/landing.component';
 import { ForgetPasswordComponent } from './login/forgetPassword/forgetPassword.component';
 import { CreateExhibitionComponent } from './admin/exhibition/create/createExhibition.component';
 import { initializeApp } from 'firebase/app';
+import { AvatarComponent } from './widgets/avatar/avatar.component';
+import { ProfileComponent } from './login/profile/profile.component';
+import { DropdownComponent, DropdownElemComponent, DropdownItemComponent, DropdownSeparatorComponent, DropdownTitleComponent } from './widgets/dropdown/dropdown.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http);
@@ -25,21 +28,32 @@ export function HttpLoaderFactory(http: HttpClient) {
 initializeApp(environment.firebase);
 @NgModule({
 	declarations: [
-		MainComponent,
-		IconComponent,
 		AppComponent,
-		WaveButtonComponent,
-		TextInputComponent,
+		MainComponent,
+		LandingComponent,
+
 		LoginComponent,
 		ForgetPasswordComponent,
-		LandingComponent,
-		CreateExhibitionComponent
+		ProfileComponent,
+
+		CreateExhibitionComponent,
+
+		/* Widgets */
+		IconComponent,
+		AvatarComponent,
+		WaveButtonComponent,
+		TextInputComponent,
+		DropdownComponent, 
+		DropdownElemComponent, 
+		DropdownItemComponent, 
+		DropdownSeparatorComponent, 
+		DropdownTitleComponent
 	],
 	imports: [
 		HttpClientModule,
 		BrowserModule,
 		FormsModule,
-        ReactiveFormsModule,
+		ReactiveFormsModule,
 		TranslateModule.forRoot({
 			defaultLanguage: 'en',
 			loader: {

@@ -1,8 +1,19 @@
 <header>
     <div class="main-header_title" (click)="landing()">Ar-t-chive</div>
     <div class="main-header_right">
-        <waveButton *ngIf="!(usersService.currentUser | async)" (click)="signIn()" label="common.connect" icon="account_circle" type="button" buttonType="outlined"></waveButton>
-        <waveButton *ngIf="usersService.currentUser | async" (click)="signOut()" label="logout" type="button"></waveButton>
+        <waveButton *ngIf="!(usersService.currentUser | async)" (click)="signIn()" label="common.connect"
+            icon="account_circle" type="button" buttonType="outlined"></waveButton>
+        <ng-container *ngIf="usersService.currentUser | async">
+
+            <dropdown class="menu" position="bottom-left">
+                <dropdown-elem>
+                    <avatar [user]="usersService.currentUser | async"></avatar>
+                </dropdown-elem>
+                <ng-template>
+                    <dropdown-item icon="account_circle" label="main.logout" (action)="signOut()"></dropdown-item>
+                </ng-template>
+            </dropdown>
+        </ng-container>
     </div>
 </header>
 <router-outlet></router-outlet>

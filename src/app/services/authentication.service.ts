@@ -1,23 +1,19 @@
 
 import { Injectable } from '@angular/core';
-import firebase from 'firebase/compat/app';
 import { NGXLogger } from 'ngx-logger';
 import { ArtError } from '../models/artError.model';
-import { getAuth, Auth, signInWithEmailAndPassword, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
-import { Subject } from 'rxjs';
-import { User } from '../models/user.model';
+import { getAuth, Auth, signInWithEmailAndPassword, signInWithPopup, onAuthStateChanged, GoogleAuthProvider, User as AuthUser } from 'firebase/auth';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
 
     private auth: Auth;
-    public currentUserId: Subject<string | null> = new Subject<string | null>();
+    public currentAuthUser: BehaviorSubject<AuthUser | null> = new BehaviorSubject<AuthUser | null>(null);
 
     public constructor(private logger: NGXLogger) {
         this.auth = getAuth();
-        onAuthStateChanged(this.auth, (firebaseUser) => {
-            this.currentUserId.next(firebaseUser ? firebaseUser.uid : null);            
-        });
+        onAuthStateChanged(this.auth, (firebaseUser) => { this.currentAuthUser.next(firebaseUser); });
     }
 
     public async signIn(login: string, password: string) {
@@ -32,7 +28,7 @@ export class AuthenticationService {
     }
 
     public async signInWithGoogle() {
-        await signInWithPopup(this.auth, new firebase.auth.GoogleAuthProvider());
+        await signInWithPopup(this.auth, new GoogleAuthProvider());
     }
 
     public async signOut() {

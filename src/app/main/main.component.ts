@@ -17,6 +17,10 @@ export class MainComponent {
 		private router: Router,
 		private authService: AuthenticationService,
 		public usersService: UsersService) {
+			this.usersService.currentUser.subscribe((currentUser: User | null) => {
+				if (currentUser && !currentUser.confirmed) { this.router.navigate(['/profile']); }
+				else this.router.navigate(['/']);
+			});
 	}
 
 	public ngOnInit(): void {
@@ -30,7 +34,8 @@ export class MainComponent {
 		this.router.navigate(['/']);
 	}
 
-	public signOut() {
-		this.authService.signOut();
+	public async signOut() {
+		await this.authService.signOut();
+		this.router.navigate(['/']);
 	}
 }
