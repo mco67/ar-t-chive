@@ -179,7 +179,6 @@ export class DropdownElemComponent {
     template: '\
         <div *ngIf="isStandard" class="dropdown-item {{class}}" (click)="internalAction($event);">\
             <div class="dropdown-item-icon material-icons-outlined" *ngIf="icon">{{icon}}</div>\
-            <div class="dropdown-item-img" *ngIf="imgSrc"><img [src]="imgSrc" alt="" /></div>\
             <div class="dropdown-item-labels" *ngIf="translatedLabel">\
                 <div *ngIf="label" class="dropdown-item-label" [translate]="label"></div>\
                 <div *ngIf="details" class="dropdown-item-details" [innerHtml]="translatedDetails"></div>\
@@ -236,7 +235,6 @@ export class DropdownItemComponent {
         private dropdownService: DropdownService,
         private renderer: Renderer2,
         private changeDetectorRef: ChangeDetectorRef) {
-
       
         this.isStandard = this.type !== "files" && this.inputType !== "radio" && !this.href;
         this.isFiles = this.type === "files";

@@ -3,7 +3,8 @@
         "connect": "Connect"
     },
     "main": {
-        "logout": "Log out"
+        "logout": "Log out",
+        "profile": "My profile"
     },
     "login": {
         "title": "Connect or create an account",

@@ -8,6 +8,7 @@ html {
     --white: #fefefe;
     --blue: #305b9c;
     --gray: #969696;
+    --middle-gray: #4b4e53;
     --just-gray: #27282b;
     --dark-gray: #151515;
     --red: #ff0000;
@@ -20,6 +21,9 @@ html {
 
     --buttonPrimaryBgColor: var(--blue);
     --buttonSecondaryBgColor: var(--gray);
+
+    --dropdownBgColor: var(--just-gray);
+    --dropdownHoverColor: var(--middle-gray);
 
 }
 

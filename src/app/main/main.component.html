@@ -10,7 +10,9 @@
                     <avatar [user]="usersService.currentUser | async"></avatar>
                 </dropdown-elem>
                 <ng-template>
-                    <dropdown-item icon="account_circle" label="main.logout" (action)="signOut()"></dropdown-item>
+                    <dropdown-item icon="account_circle" label="main.profile" (action)="profile()"></dropdown-item>
+                    <dropdown-separator></dropdown-separator>
+                    <dropdown-item icon="logout" label="main.logout" (action)="signOut()"></dropdown-item>
                 </ng-template>
             </dropdown>
         </ng-container>

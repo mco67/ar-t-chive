@@ -34,6 +34,10 @@ export class MainComponent {
 		this.router.navigate(['/']);
 	}
 
+	public profile() {
+		this.router.navigate(['/profile']);
+	}
+
 	public async signOut() {
 		await this.authService.signOut();
 		this.router.navigate(['/']);
